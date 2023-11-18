@@ -1,14 +1,14 @@
-[build-system]
-requires = ["flit"]
-build-backend = "flit.buildapi"
-
-[project]
-name =  "py-project-toml"
-authors = [
-    {name = "Daniel Ciborowski", email = "dciborow@microsoft.com"},
-]
-description = "Sample Python Project for creating a new Python Module"
+[tool.poetry]
+name = "python_package"
+version = "0.0.0"
+description = "Hyper-modern python package framework."
+authors = ["Jennings Fantini <jennings@humblfinance.io>"]
 readme = "README.md"
+license = "Proprietary"
+keywords = ["python", "package", "template", "modern"]
+packages = [
+    { include = "python_package", from = "src" }
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -19,40 +19,113 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11"
 ]
-requires-python = ">=3.8.1"
-dynamic = ["version"]
 
-[project.optional-dependencies]
-spark = [
-    "pyspark>=3.0.0"
+[tool.poetry.dependencies]
+python = ">=3.9.10,<3.12.0"
+polars = "^0.19.3"
+pyarrow = "^14.0.0"
+pandera = {extras = ["io"], version = "^0.17.2"}
+toml = "^0.10.2"
+
+
+[tool.poetry.group.dev.dependencies]
+commitizen = "^3.12.0"
+pytest = "^7.4.2"
+pytest-cov = "^4.1.0"
+black = "^23.9.1"
+pytest-mock = "^3.12.0"
+ipython = "^8.17.2"
+comm = "^0.2.0"
+ruff = "^0.1.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.commitizen]
+name = "cz_customize"
+version = "0.10.0"
+tag_format = "v$version"
+update_changelog_on_bump = true
+annotated_tag = true
+major_version_zero = true
+version_files = [
+    "pyproject.toml:^version",
+    #"./src/python_package/__version__.py"
 ]
-test = [
-    "bandit[toml]==1.7.5",
-    "black==23.3.0",
-    "check-manifest==0.49",
-    "flake8-bugbear==23.5.9",
-    "flake8-docstrings",
-    "flake8-formatter_junit_xml",
-    "flake8",
-    "flake8-pyproject",
-    "pre-commit==3.3.1",
-    "pylint==2.17.4",
-    "pylint_junit",
-    "pytest-cov==4.0.0",
-    "pytest-mock<3.10.1",
-    "pytest-runner",
-    "pytest==7.3.1",
-    "pytest-github-actions-annotate-failures",
-    "shellcheck-py==0.9.0.2"
+path = ".cz-config.js"
+
+[tool.commitizen.customize]
+# message_template = "{{change_type}}:{% if show_message %} {{message}}{% endif %}"
+example = "feat: this feature enables customizing through pyproject.toml file"
+schema = """
+<type>(<scope>): <subject> \n
+<BLANK LINE> \n
+<body> \n
+<BLANK LINE> \n
+(BREAKING CHANGE: )<breaking> \n
+<BLANK LINE> \n
+(ISSUES: )<footer>
+"""
+schema_pattern = "(?s)(📦️ build|🎡 ci|📝 docs|✨ feat|🐛 fix|🚑 hotfix|⚡ perf|♻️ refactor|🎨 style|✅ test|🔨 chore|⏪️ revert|bump|🚧 WIP|➕ dep|➖ dep)(\\(\\S+\\))?!?:( [^\\n\\r]+)((\\n\\n.*)|(\\s*))?$"
+bump_pattern = "^(✨ feat|🐛 fix|🚑 hotfix|⚡ perf|🔧 refactor|bump)"
+bump_map = {"BREAKING CHANGE" = "MAJOR", "✨ feat" = "MINOR", "🐛 fix" = "PATCH", "🚑 hotfix" = "PATCH", "⚡ perf" = "PATCH", "♻️ refactor" = "PATCH"}
+change_type_order = ["BREAKING CHANGE", "✨ feat", "🐛 fix", "🚑 hotfix", "♻️ refactor", "⚡ perf", "📦️ build", "🎨 style", "📝 docs", "➕ dep", "➖ dep"]
+info_path = "cz_customize_info.txt"
+info = """
+This is customized commitizen info
+"""
+commit_parser = "^(?P<change_type>📦️ build|🎡 ci|📝 docs|✨ feat|🐛 fix|🚑 hotfix|⚡ perf|♻️ refactor|🎨 style|✅ test|🔨 chore|⏪️ revert|bump|🚧 WIP|➕ dep|➖ dep):\\s(?P<message>.*)?"
+changelog_pattern = "^(📦️ build|🎡 ci|📝 docs|✨ feat|🐛 fix|🚑 hotfix|⚡ perf|♻️ refactor|🎨 style|✅ test|🔨 chore|⏪️ revert|bump|🚧 WIP|➕ dep|➖ dep)?(!)?"
+change_type_map = {"📦️ build" = "📦️ Build", "🎡 ci" = "🎡 CI", "📝 docs" = "📝 Docs", "✨ feat" = "✨ Feat", "🐛 fix" = "🐛 Fix", "🚑 hotfix" = "🚑 Hotfix", "⚡ perf" = "⚡ Perf", "♻️ refactor" = "♻️ Refactor", "🎨 style" = "🎨 Style", "✅ test" = "✅ Test", "🔨 chore" = "🔨 Chore", "⏪️ revert" = "⏪️ Revert", "bump" = "🔼 Bump", "🚧 WIP" = "🚧 WIP", "➕ dep" = "➕ Added Dependency", "➖ dep" = "➖ Removed Dependency"}
+
+[tool.ruff]
+line-length = 80
+select = [
+"E",   # pycodestyle
+"F",   # pyflakes
+"UP",  # pyupgrade,
+"I",   # isort
+"B",   # bugbear
 ]
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+unfixable = []
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+per-file-ignores = {}
+
+[tool.ruff.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds 10.
+max-complexity = 10
+
 
 [project.urls]
 Documentation = "https://github.com/microsoft/python-package-template/tree/main#readme"
 Source = "https://github.com/microsoft/python-package-template"
 Tracker = "https://github.com/microsoft/python-package-template/issues"
-
-[tool.flit.module]
-name = "python_package"
 
 [tool.bandit]
 exclude_dirs = ["build","dist","tests","scripts"]
@@ -71,7 +144,7 @@ branch = true
 fail_under = 100
 
 [tool.flake8]
-max-line-length = 120
+max-line-length = 80
 select = "F,E,W,B,B901,B902,B903"
 exclude = [
     ".eggs",
@@ -99,13 +172,10 @@ exclude = [
     "**/__pycache__",
 ]
 venv = "env37"
-
 reportMissingImports = true
 reportMissingTypeStubs = false
-
 pythonVersion = "3.7"
 pythonPlatform = "Linux"
-
 executionEnvironments = [
   { root = "src" }
 ]
