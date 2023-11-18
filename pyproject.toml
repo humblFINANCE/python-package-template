@@ -26,6 +26,7 @@ polars = "^0.19.3"
 pyarrow = "^14.0.0"
 pandera = {extras = ["io"], version = "^0.17.2"}
 toml = "^0.10.2"
+pydantic = "^2.5.1"
 
 
 [tool.poetry.group.dev.dependencies]
