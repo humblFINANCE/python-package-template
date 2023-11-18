@@ -1,29 +1,92 @@
 {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "files.trimTrailingWhitespace": true,
-    "files.autoSave": "onFocusChange",
-    "git.autofetch": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.charliermarsh.ruff",
+        "editor.formatOnSave": true,
+    },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
-    "python.defaultInterpreterPath": "/usr/local/bin/python",
-    "python.formatting.provider": "black",
+    "black-formatter.args": [
+        "--line-length",
+        "80"
+    ],
+    "python.autoComplete.extraPaths": [
+        "./src"
+    ],
+    "python.analysis.extraPaths": [
+        "./src"
+    ],
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "pylint.args": [
-        "--rcfile=pyproject.toml"
+    "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
+    "files.autoSave": "onFocusChange",
+    "cSpell.words": [
+        "backtest",
+        "bordercolor",
+        "borderwidth",
+        "Clauclate",
+        "cumdev",
+        "cumsum",
+        "dataframe",
+        "Defualt",
+        "degross",
+        "displaylogo",
+        "Drawdowns",
+        "expirdate",
+        "fixedrange",
+        "fromdate",
+        "garman",
+        "hoverinfo",
+        "hovermode",
+        "inital",
+        "intrinio",
+        "investmnet",
+        "ivol",
+        "klass",
+        "modebar",
+        "nbinsx",
+        "obbh",
+        "openbb",
+        "ORATS",
+        "Patito",
+        "premia",
+        "prepost",
+        "quantile",
+        "quantstats",
+        "reqs",
+        "rowspan",
+        "satchell",
+        "showarrow",
+        "showgrid",
+        "showlegend",
+        "showline",
+        "showspikes",
+        "showticklabels",
+        "spikecolor",
+        "spikedistance",
+        "Spikelines",
+        "spikemode",
+        "spikethickness",
+        "todate",
+        "togglespikelines",
+        "tozeroy",
+        "traceorder",
+        "tradedate",
+        "xanchor",
+        "xaxes",
+        "xaxis",
+        "yaxes",
+        "yref",
+        "zeroline",
+        "zerolinecolor",
+        "zhang",
+        "zoomin",
+        "zoomout"
     ],
-    "black-formatter.args": [
-        "--config=pyproject.toml"
-    ],
-    "flake8.args": [
-        "--toml-config=pyproject.toml"
-    ],
-    "isort.args": [
-        "--settings-path=pyproject.toml"
-    ]
+    "python.analysis.typeCheckingMode": "basic",
+    "workbench.activityBar.orientation": "vertical"
 }
