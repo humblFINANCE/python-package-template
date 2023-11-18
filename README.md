@@ -93,6 +93,7 @@ This project uses a mamba environment.
 
     ```bash
     conda config --set env_prompt '({name})'
+    conda config --add channels conda-forge
     ```
 
 3. Activate the environment
@@ -105,8 +106,10 @@ This project uses a mamba environment.
 4. Check if poetry is installed
 
     ```bash
+    mamba install poetry
     poetry --version
-    # Install with `mamba install poetry`
+    # make sure it is the latest version
+    # can use mamba search -f poetry
     ```
 
 5. Install Packages from `poetry.lock`
@@ -138,7 +141,7 @@ This project uses a mamba environment.
 </p>
 </details>
 <details>
-<summary><b>Setup Conda Environment (w/o Poetry)</b></summary>
+<summary><b>Setup Mamba Environment (w/o Poetry)</b></summary>
 <p>
 
   If you do not use `poetry` for some weird reason, I keep the updated environment specs in an `environment.yml` and `requirements.txt`file in the root of the project.

@@ -1,26 +1,24 @@
 import subprocess
+import time
 
-from humbldata.core.helpers import MessageHelpers
-
-msg = MessageHelpers.log_message
+from tqdm import tqdm
 
 # Export Conda environment to environment.yml
+print("Exporting Conda environment to environment.yml...")
+for i in tqdm(range(100)):
+    time.sleep(0.01)
 subprocess.run(
     """conda env export | python -c "import sys; print(''.join(line for line in sys.stdin if 'prefix: ' not in line))" > environment.yml""",
     shell=True,
     check=True,
 )
 
-msg(
-    "Updated [bright_yellow]environment.yml[/bright_yellow] [green3]" "successfully[/green3].",
-    "success",
-)
-
+print("Exporting Conda list to requirements.txt...")
+for i in tqdm(range(100)):
+    time.sleep(0.01)
 subprocess.run("conda list --export > requirements.txt", shell=True, check=True)
-msg(
-    "Updated [bright_yellow]requirements.txt[/bright_yellow] [green3]" "successfully[/green3].",
-    "success",
-)
+
+print("Done!")
 
 
 # subprocess.run(

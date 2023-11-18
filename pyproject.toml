@@ -21,7 +21,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.9.10,<3.12.0"
+python = ">=3.9.10,<=3.12.0"
 polars = "^0.19.3"
 pyarrow = "^14.0.0"
 pandera = {extras = ["io"], version = "^0.17.2"}
@@ -38,6 +38,8 @@ pytest-mock = "^3.12.0"
 ipython = "^8.17.2"
 comm = "^0.2.0"
 ruff = "^0.1.6"
+nox = "^2023.4.22"
+tqdm = "^4.66.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -45,7 +47,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.commitizen]
 name = "cz_customize"
-version = "0.10.0"
+version = "0.0.0"
 tag_format = "v$version"
 update_changelog_on_bump = true
 annotated_tag = true
