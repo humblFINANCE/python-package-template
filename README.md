@@ -18,7 +18,7 @@
 
 ---
 
-<p align="center"> This package is a template for your<b>project</b>.
+<p align="center"> This package is a template for your <b>project</b>.
 </p>
 
 ## 📝 __Table of Contents__
@@ -44,14 +44,16 @@ Write about 1-2 paragraphs describing the purpose of your project.
 
 ## 🏁 __Getting Started__ <a name = "getting_started"></a>
 
+To get started with this template, simply 'Use This Template' to create a new repository and start building your project within the `src` directory. Try to open the project in GitHub Codespace, and to run the unit tests using the VS Code Test extension.
+
 To start, search for `python_package` and change it to your new package name.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Prerequisite Software Installed on Base Machine
 
 - `Python` - programming language
-- `Conda` (miniconda3/anaconda/mamba) - env management
+- `Conda/Mamba` - env management, (recommend using miniconda3 w/ mamba)
 - `Poetry` - package management
 - `commitizen` & `cz_customiziable` - commit message management
 - `Ruff` - style/linter tool
@@ -61,7 +63,7 @@ These instructions will get you a copy of the project up and running on your loc
 When I upload to pip:
 
 ```bash
-pip install project
+pip install python_package
 ```
 
 Current install method:
@@ -197,6 +199,21 @@ Follow the [quickstart guide](https://github.com/leoforfree/cz-customizable) and
 
 </p>
 </details>
+
+## ⚡️ __GitHub Workflow Setup__ <a name = "development_setup"></a>
+There are 8 pre-made github actions that are used with this template. SOme require API_KEYS/TOKENS to work. Add your tokens to the secrets manager in your repo settings.
+
+1. `bumpversion.yml`: This workflow automates the versioning of the project using bumpversion.
+   - Uses a GitHub `PERSONAL_ACCESS_TOKEN`
+2. `CI.yml`: This workflow manages the continuous integration of the project.
+3. `code-cov.yml`: This workflow generates and updates the code coverage report.
+   - Uses a GitHub `PERSONAL_ACCESS_TOKEN`
+4. `publish.yml`: This workflow handles the publishing of the project, using `poetry` and publishing to PyPi.
+   - Uses a PyPi `PYPI_PASSWORD` key.
+5. `schedule-update-actions.yml`: This workflow updates GitHub Actions on a scheduled basis - every sunday.
+6. `semantic-pr-check.yml`: This workflow validates the PR title to ensure it follows semantic conventions.
+7. `sphinx.yml`: This workflow deploys Sphinx documentation to Pages.
+8. `template-sync.yml`: This workflow synchronizes the project with the latest template updates.
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
@@ -346,10 +363,6 @@ The Dockerfile specifies the base image and dependencies needed for the developm
 The devcontainer.json file is a configuration file that defines the development container's settings, including the Docker image to use, any additional VSCode extensions to install, and whether or not to mount the project directory into the container. It uses the python-3-miniconda container as its base, which is provided by Microsoft, and also includes customizations for VSCode, such as recommended extensions for Python development and specific settings for those extensions. In addition to the above, the settings.json file also contains a handy command that can automatically install pre-commit hooks. These hooks can help ensure the quality of the code before it's committed to the repository, improving the overall codebase and making collaboration easier.
 
 The settings.json file is where we can customize various project-specific settings within VSCode. These settings can include auto-formatting options, auto-trimming of trailing whitespace, Git auto-fetching, and much more. By modifying this file, you can tailor the VSCode environment to your specific preferences and workflow. It also contains specific settings for Python, such as the default interpreter to use, the formatting provider, and whether to enable unittest or pytest. Additionally, it includes arguments for various tools such as Pylint, Black, Flake8, and Isort, which are specified in the pyproject.toml file.
-
-## Getting Started
-
-To get started with this template, simply 'Use This Template' to create a new repository and start building your project within the `src` directory. Try to open the project in GitHub Codespace, and to run the unit tests using the VS Code Test extension.
 
 ## Contributing
 
