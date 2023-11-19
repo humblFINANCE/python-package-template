@@ -214,6 +214,7 @@ There are 8 pre-made github actions that are used with this template. SOme requi
 6. `semantic-pr-check.yml`: This workflow validates the PR title to ensure it follows semantic conventions.
 7. `sphinx.yml`: This workflow deploys Sphinx documentation to Pages.
 8. `template-sync.yml`: This workflow synchronizes the project with the latest template updates.
+9. `nox.yml`: Automated testing across various platforms and python versions.
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
