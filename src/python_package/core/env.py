@@ -4,7 +4,7 @@ from typing import Dict, Optional
 
 import dotenv
 
-from humbldata.core.models.abstract.singleton import SingletonMeta
+from python_package.core.models.abstract.singleton import SingletonMeta
 
 
 class Env(metaclass=SingletonMeta):
@@ -19,14 +19,9 @@ class Env(metaclass=SingletonMeta):
         self._environ = os.environ.copy()
 
     @property
-    def OBB_PAT(self) -> Optional[str]:
-        """OBB PAT for OpenBB Hub"""
-        return self._environ.get("OBB_PAT", None)
-
-    @property
-    def ORATS_API(self) -> Optional[str]:
-        """ORATS API Key"""
-        return self._environ.get("ORATS_API", None)
+    def SERVICE_API(self) -> Optional[str]:
+        """Example API KEY"""
+        return self._environ.get("SERVICE_API", None)
 
     # Use this when you want a variable to return a bool
     @staticmethod
