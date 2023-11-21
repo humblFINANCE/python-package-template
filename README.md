@@ -36,11 +36,29 @@
 
 ## 🧐 __About__ <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+This is my personal python package template. Using `cookiecutter` is on the roadmap.
+This tmeplate is forked from Microsoft's python package repo.
+
+I've added a few things to the template:
+- `Ruff` - style/linter tool
+- `Poetry` - package management
+- `pre-commit` - pre-commit hooks (checking commit messages, linting)
+- `commitizen` & `cz_customiziable` - commit message management
+- Custom GitHub Workflows
+  - `bumpversion` - version management
+  - `nox` - automated testing across various platforms and python versions.
+  - `semantic-pr-check` - PR title validation
+  - `sphinx` - documentation
+  - `template-sync` - template synchronization
+  - `publish` - publishing to PyPi
+  - `code-cov` - code coverage
+  - `CI` - continuous integration
+  - `schedule-update-actions` - scheduled update of GitHub Actions
+
 
 ## __Features__ <a name = "features"></a>
 
-- **Package Features**
+- **Highlight your Package Strengths**
 
 ## 🏁 __Getting Started__ <a name = "getting_started"></a>
 
@@ -53,10 +71,8 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisite Software Installed on Base Machine
 
 - `Python` - programming language
-- `Conda/Mamba` - env management, (recommend using miniconda3 w/ mamba)
-- `Poetry` - package management
-- `commitizen` & `cz_customiziable` - commit message management
-- `Ruff` - style/linter tool
+- `Conda/miniconda/Mamba/micromamba` - env management, (recommend using micromamba)
+
 
 ### 📩 __Installing Package__
 
