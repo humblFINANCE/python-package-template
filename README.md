@@ -25,11 +25,11 @@
 
 - [About](#about)
 - [Features](#features)
+- [Roadmap](../roadmap.md)
 - [Getting Started](#getting_started)
 - [Deployment](#deployment)
 - [Usage](#usage)
 - [Built Using](#built_using)
-- [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
@@ -59,6 +59,11 @@ I've added a few things to the template:
 ## __Features__ <a name = "features"></a>
 
 - **Highlight your Package Strengths**
+
+## 🚗 __Roadmap__ <a name = "roadmap"></a>
+
+- [ ] Add `cookiecutter` template
+
 
 ## 🏁 __Getting Started__ <a name = "getting_started"></a>
 
