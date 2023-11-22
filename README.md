@@ -8,8 +8,8 @@
 <div align="center">
 
   [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-  [![GitHub Issues](https://img.shields.io/github/issues/jjfantini/humbldata.svg)](https://github.com/jjfantini/humbldata/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jjfantini/humbldata.svg)](https://github.com/jjfantini/humbldata/pulls)
+  [![GitHub Issues](https://img.shields.io/github/issues/jjfantini/python_package.svg)](https://github.com/jjfantini/python_package/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/jjfantini/python_package.svg)](https://github.com/jjfantini/python_package/pulls)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
   [![Python](https://img.shields.io/badge/Python-3.10-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
   ![License](https://img.shields.io/badge/License-Proprietary-black)
@@ -270,7 +270,7 @@ Add additional notes about how to deploy this on a live system.
 
 - [@jjfantini](https://github.com/jjfantini) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/jjfantini/humbldata/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/jjfantini/python_package/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
